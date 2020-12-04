@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Details</title>
+    </head>
+<body>
+{% if sr %}
+        {% for k in sr %}
+<center><h1>{{k.efirstname}}'s info</h1></center>
+ {% endfor %}
+    {% endif %}
+<hr width="600">
+<div>
+    {% if messages %}
+        <ul class="messages">
+            {% for k in messages %}
+            <li>{{ k }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div><br>
+<div>
+    {% if sr %}
+        {% for k in sr %}
+    <center>  <b>  <table border="0px" width="300px">
+            <tr>
+                <td>First Name:</td>
+                <td>{{ k.efirstname }}</td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td>{{ k.elastname }}</td>
+            </tr>
+            <tr>
+                <td>Date of birth:</td>
+                <td>{{ k.dob }}</td>
+            </tr>
+             <tr>
+                <td>Email is:</td>
+                <td>{{ k.email }}</td>
+            </tr>
+              <tr>
+                <td>Phone number:</td>
+                <td>{{ k.phonenumber }}</td>
+            </tr>
+             <tr>
+                <td>Designation:</td>
+                <td>{{ k.designation }}</td>
+            </tr>
+
+
+    </table><hr width="600">
+        <h2>Projects:</h2>
+                 <center>
+                               {%for m in k.Project.all%}
+
+
+                                 <li>{{m}}</li>
+
+
+                               {% endfor%}
+
+                 </center>
+    </b></center>
+    <hr width="600">
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+</body>
+</html>
